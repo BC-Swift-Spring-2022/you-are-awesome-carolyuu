@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    var imageNumber = 0
-    var messageNumber = 0
+    var imageNumber = -1
+    var messageNumber = -1
     let totalNumberOfImages = 9
     
     override func viewDidLoad() {
@@ -28,8 +28,67 @@ class ViewController: UIViewController {
                         "when the genious bar needs help, they call you",
                         "fabulous? thats you!",
                         "you've got the design skills of Jony Ive"]
-        messageLabel.text = messages[Int.random(in:0...messages.count-1)]
-        imageView.image = UIImage(named: "image\(Int.random(in: 0...totalNumberOfImages))")
+        
+//Repeat Loop, declaration w/o intialization
+        var newMessageNumber: Int
+        repeat {
+            newMessageNumber = Int.random(in:0...messages.count-1)
+        } while messageNumber == newMessageNumber
+        messageNumber = newMessageNumber
+        messageLabel.text = messages[messageNumber]
+        
+
+        
+        var newImageNumber: Int
+        repeat {
+            newImageNumber = Int.random(in: 0...totalNumberOfImages)
+        } while imageNumber == newImageNumber
+        imageNumber = newImageNumber
+        imageView.image = UIImage(named: "image\(imageNumber)")
+        
+// WHILE LOOP
+//        var newMessageNumber = Int.random(in:0...messages.count-1)
+//        while messageNumber == newMessageNumber {
+//            newMessageNumber = Int.random(in:0...messages.count-1)
+//        }
+//        messageNumber = newMessageNumber
+//        messageLabel.text = messages[messageNumber]
+//
+//
+//
+//        var newImageNumber = Int.random(in: 0...totalNumberOfImages)
+//        while imageNumber == newImageNumber {
+//            newImageNumber = Int.random(in: 0...totalNumberOfImages)
+//        }
+//        imageNumber = newImageNumber
+//        imageView.image = UIImage(named: "image\(imageNumber)")
+//
+            }
+        }
+        
+    // WHILE LOOP
+//        var newMessage = messages[Int.random(in:0...messages.count-1)]
+//
+//        while messageLabel.text == newMessage {
+//            newMessage = messages[Int.random(in:0...messages.count-1)]
+//        }
+//        messageLabel.text = newMessage
+//
+//
+//
+//        var newImage = UIImage(named: "image\(Int.random(in: 0...totalNumberOfImages))")
+//        while imageView.image == newImage {
+//            newImage = UIImage(named: "image\(Int.random(in: 0...totalNumberOfImages))")
+//        }
+//        imageView.image = newImage
+//
+//            }
+//        }
+
+//        messageLabel.text = messages[Int.random(in:0...messages.count-1)]
+//       imageView.image = UIImage(named: "image\(Int.random(in: 0...totalNumberOfImages))")
+        
+        // does not check for repetition
         
 //        messageLabel.text = messages[messageNumber]
 //        messageNumber += 1
@@ -65,5 +124,4 @@ class ViewController: UIViewController {
             //            imageView.image = UIImage(named: "image0")
 //        }
 
-    }
-}
+    
