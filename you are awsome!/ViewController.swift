@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var playSoundSwitch: UISwitch!
+    
     var imageNumber = -1
     var messageNumber = -1
     var soundNumber = -1
@@ -76,7 +78,7 @@ class ViewController: UIViewController {
 //        } while imageNumber == newImageNumber
 //        imageNumber = newImageNumber
         imageNumber = nonRepeatingRandom(origionalNumber: imageNumber, upperLimit: totalNumberOfImages-1)
-        imageView.image = UIImage(named: "image\(imageNumber)")
+        imageView.image = UIImage(named: "image \(imageNumber)")
         
         
         
@@ -87,10 +89,20 @@ class ViewController: UIViewController {
 //        soundNumber = newSoundNumber
 //        print("*** the new sound number is \(soundNumber)")
         soundNumber = nonRepeatingRandom(origionalNumber: soundNumber, upperLimit: totalNumberOfSounds-1)
-        playSound(name: "sound \(soundNumber)")
-        
+        if playSoundSwitch.isOn { // if playSoundSwitch is on
+            playSound(name: "sound \(soundNumber)") // then play the sound
+        }
+
     }
-}
+    
+    @IBAction func playSoundToggeled(_ sender: UISwitch) {
+        if !sender.isOn && audioPlayer != nil{ // if .isOn is NOT true
+            audioPlayer.stop() // Stop playing
+        }
+    }
+    
+    }
+
 // WHILE LOOP
 //        var newMessageNumber = Int.random(in:0...messages.count-1)
 //        while messageNumber == newMessageNumber {
@@ -169,3 +181,4 @@ class ViewController: UIViewController {
 //        }
 
     
+

@@ -17,15 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rB-2U-va6">
-                                <rect key="frame" x="147" y="187" width="120" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="show message"/>
-                                <connections>
-                                    <action selector="messageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r4h-Cv-ldQ"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mQF-3x-BtV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQF-3x-BtV">
                                 <rect key="frame" x="16" y="226" width="382" height="616"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="placeholder text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0W-GF-7Ru">
@@ -38,6 +30,29 @@
                                 <color key="highlightedColor" name="AccentColor"/>
                                 <color key="shadowColor" name="AccentColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rB-2U-va6">
+                                <rect key="frame" x="256" y="187" width="120" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="show message"/>
+                                <connections>
+                                    <action selector="messageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r4h-Cv-ldQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Play Sound: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dml-Tt-WqI">
+                                <rect key="frame" x="41" y="192" width="94" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rqf-ET-D4Q">
+                                <rect key="frame" x="143" y="187" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="playSoundToggeled:" destination="BYZ-38-t0r" eventType="valueChanged" id="tp6-ch-88K"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -47,20 +62,18 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mQF-3x-BtV" secondAttribute="trailing" constant="16" id="Es4-fM-4DS"/>
                             <constraint firstItem="p0W-GF-7Ru" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="F9f-zg-e0Y"/>
                             <constraint firstItem="mQF-3x-BtV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OgJ-co-ZKR"/>
-                            <constraint firstItem="3rB-2U-va6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sl3-cj-l3e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p0W-GF-7Ru" secondAttribute="trailing" constant="16" id="eIr-ks-blJ"/>
-                            <constraint firstItem="3rB-2U-va6" firstAttribute="top" secondItem="p0W-GF-7Ru" secondAttribute="bottom" constant="8" id="gJi-DC-oU7"/>
-                            <constraint firstItem="mQF-3x-BtV" firstAttribute="top" secondItem="3rB-2U-va6" secondAttribute="bottom" constant="8" id="sq9-6V-3Vb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="mQF-3x-BtV" id="w1K-rs-IJT"/>
                         <outlet property="messageLabel" destination="p0W-GF-7Ru" id="HXC-jX-LO4"/>
+                        <outlet property="playSoundSwitch" destination="Rqf-ET-D4Q" id="0mT-PJ-KeH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.399999999999999" y="71.514242878560722"/>
+            <point key="canvasLocation" x="17.39130434782609" y="70.982142857142847"/>
         </scene>
     </scenes>
     <resources>
